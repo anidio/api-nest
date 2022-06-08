@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Servico } from './../servico/servico.entity';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
 @Entity()
 export class Usuario {
@@ -14,4 +15,15 @@ export class Usuario {
   @Column()
   password: string;
 
+  @Column()
+  created: Date;
+
+  @Column()
+  modified: Date;
+
+  @Column()
+  last_login: Date;
+  
+  @OneToMany(() => Servico, servico => servico.usuario)
+  servicos: Servico[];
 }

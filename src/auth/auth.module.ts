@@ -1,3 +1,4 @@
+import { TokenService } from 'src/token/token.service';
 import { JwtStrategy } from './jwt.strategy';
 import { jwtConstants } from './constants';
 import { LocalStrategy } from './local.strategy';
@@ -15,6 +16,6 @@ import { JwtModule } from '@nestjs/jwt';
     }),
   ],
   providers: [AuthService, LocalStrategy, JwtStrategy],
-  exports: [JwtModule, AuthService]
+  exports: [JwtModule, AuthService,TokenService]
 })
 export class AuthModule {}
